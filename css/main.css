@@ -7,6 +7,7 @@
   font-family: Roboto, sans-serif;
   width: 100vw;
   height: 100vh;
+  min-height: 500px;
   padding: 1rem;
   background-color: #333945;
   color: #70beca;
@@ -25,7 +26,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  max-height: calc(100vh - 3rem);
+  max-height: calc(500px - 3rem);
 }
 
 .student__row {
