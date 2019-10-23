@@ -33,13 +33,14 @@ const student1 = new student('Adam', 'Konwaliowa 2', 23232, 'Medical Diagnosis' 
 const student2 = new student('Pawel', 'Wesola 25', '00000', 'Psychology' );
 const student3 = new student('Gawel', 'zxc 222', '111', 'ASD' );
 const student4 = new student('Michal', 'Wesola 25', '00000', 'WQWWWW' );
+const student5 = new student('Andrzej', 'OMG', 32377745, 'UUUUUUU' );
 
 
 
 student3.changeId(77777);
 //list arr
 const studentsList = [];
-studentsList.push(student1, student2, student3, student4);
+studentsList.push(student1, student2, student3, student4, student5);
 
 let outputHtml = '';
 studentsList.push();
