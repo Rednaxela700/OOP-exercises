@@ -39,16 +39,7 @@ function studentItemDiv(className, item, arg) {
 }
 
 studentsList.map((element) => {
-    htmlAnchor.innerHTML = outputHtml;
 
-//     outputHtml += `
-// <div class="student__row">
-// <div class="student__item">${element.name}</div>
-// <div class="student__item">${element.address} </div>
-// <div class="student__item">${element.idNumber} </div>
-// <div class="student__item">${element.profile}</div>
-// </div>`;
-//
     outputHtml +=
         '<div class="student__row">' +
         studentItemDiv('student__item', element, 'name') +
@@ -57,3 +48,5 @@ studentsList.map((element) => {
         studentItemDiv('student__item', element, 'profile') +
         '</div>' ;
 });
+
+htmlAnchor.innerHTML = outputHtml;
