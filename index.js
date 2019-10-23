@@ -15,6 +15,8 @@ const ultimateStudentES6 = {
 
 
 };
+
+//creating list of students
 const properStudent = Object.create((ultimateStudentES6));
 properStudent.setStudentData('Jedrzej', 'Metalowa 666', 12323, 'Medical Student');
 properStudent.displayInfo();
@@ -26,6 +28,8 @@ const properStudent3 = Object.create((ultimateStudentES6));
 
 properStudent3.setStudentData('DzejDzej', 'Jazzowa 1358', 12323, 'SSS');
 
+
+//list arr
 const studentsList = [];
 
 
@@ -34,6 +38,8 @@ studentsList.push(properStudent, properStudent2, properStudent3);
 console.log(studentsList);
 const htmlAnchor = document.querySelector('.student__container');
 
+
+//function creating html output
 function studentItemDiv(className, item, arg) {
     return `<div class="${className}">${item[arg]}</div>`
 }
