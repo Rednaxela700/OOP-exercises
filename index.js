@@ -1,4 +1,4 @@
-var student = {
+var studentES5 = {
     name: 'Andrzej Wajda',
     address: 'address street 123',
     idNumber: '2363623',
@@ -11,23 +11,23 @@ var student = {
     }
 };
 
-student.displayInfo();
+studentES5.displayInfo();
 
-student.changeId(333222);
-student.displayInfo();
+studentES5.changeId(333222);
+studentES5.displayInfo();
 
-var student2 = {
+const studentES6 = {
     name: 'Bandrzej Pajda',
     address: 'Fiolkowa 123',
     idNumber: '0308802210',
     profile: 'Zawud Piekasz',
     displayInfo: function () {
-        console.log(this.name, '\n', this.address, '\n', this.idNumber, '\n', this.profile);
+        console.log(`${this.name}\n${this.address}\n${this.idNumber}\n${this.profile}`);
     },
     changeId: function (num) {
         this.idNumber = num.toString()
     }
 };
 
-
-student2.displayInfo();
+console.log('\n')
+studentES6.displayInfo();
