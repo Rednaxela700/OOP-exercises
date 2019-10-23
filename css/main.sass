@@ -1,5 +1,6 @@
 $font-primary: #70beca
 $font-secondary: #d29b62
+$outside-border: 6px solid $font-secondary
 *
   margin: 0
   padding: 0
@@ -26,6 +27,10 @@ $font-secondary: #d29b62
 .student__row
   display: flex
   justify-content: center
+  &:first-child > .student__item
+    border-top: $outside-border
+  &:last-child > .student__item
+    border-bottom: $outside-border
 
 .student__item
   display: flex
@@ -35,3 +40,7 @@ $font-secondary: #d29b62
   width: 200px
   height: 80px
   border: 3px solid $font-secondary
+  &:first-child
+    border-left: $outside-border
+  &:last-child
+    border-right: $outside-border
