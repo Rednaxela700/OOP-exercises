@@ -11,10 +11,10 @@ var studentES5 = {
     }
 };
 
-studentES5.displayInfo();
+// studentES5.displayInfo();
 
-studentES5.changeId(333222);
-studentES5.displayInfo();
+// studentES5.changeId(333222);
+// studentES5.displayInfo();
 
 const studentES6 = {
     name: 'Bandrzej Pajda',
@@ -29,5 +29,34 @@ const studentES6 = {
     }
 };
 
-console.log('\n')
-studentES6.displayInfo();
+const ultimateStudentES6 = {
+    name: '',
+    setName: function (arg) {
+        this.name = arg
+    },
+    address: '',
+    setAddress: function (arg) {
+        this.address = arg.toString()
+    },
+    idNumber: '',
+    setIdNumber: function (arg) {
+        this.idNumber = arg
+    },
+    profile: '',
+    setProfile: function (arg) {
+        this.profile = arg
+    },
+
+    displayInfo: function () {
+        console.log(`${this.name}\n${this.address}\n${this.idNumber}\n${this.profile}`);
+    }
+
+
+};
+
+const firstStudent = Object.create(ultimateStudentES6);
+firstStudent.setName('Michal');
+firstStudent.setAddress('Ulica 1');
+firstStudent.setIdNumber(12323);
+firstStudent.setProfile('Medical Student');
+console.log(firstStudent);
