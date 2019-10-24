@@ -15,8 +15,8 @@ class Person {
 
 //creating student class
 class StudentES6 extends Person {
-    constructor (name, address, idNumber) {
-        super(name, address, idNumber);
+    constructor (name, address, idNumber, age) {
+        super(name, address, idNumber, age);
         this.role = 'student';
     }
     displayFullInfo() {
@@ -50,8 +50,6 @@ newStudentES6.displayFullInfo()
 // Student.prototype.constructor = Student;
 //
 // const brandNewStudent = new Student('Tomasz', 12323);
-
-// nr Ic 2336/17 - cywilny mokotow  22 501 97 20 - 22 501 97 21 - 22 501 97 22
 
 //creating student using constructor above
 // const student1 = new Student('Adam', 'Konwaliowa 2', 23232, 'Medical Diagnosis' );
