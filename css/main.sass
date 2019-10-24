@@ -130,3 +130,20 @@ $outside-border: 6px solid $font-secondary
     border-left: $outside-border
   &:last-child
     border-right: $outside-border
+
+.footer
+  &__container
+    display: flex
+    margin: 0 auto
+    text-align: center
+    justify-content: flex-end
+  &__link
+    color: $font-primary
+    text-decoration: none
+    border-bottom: 1px solid $font-primary
+    cursor: pointer
+    margin: 0 2rem
+    &:hover  .footer__copy
+      color: $font-secondary
+  &__copy
+    padding: 4px 0
