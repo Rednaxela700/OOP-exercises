@@ -25,8 +25,12 @@ $outside-border: 6px solid $font-secondary
     align-items: center
     padding: 1rem
   &__label
+    display: flex
+    align-items: center
     padding: .5rem
   &__span
+    display: block
+    width: 120px
     padding: 0 1rem 0 0
   &__input
     font-size: 1rem
@@ -38,6 +42,8 @@ $outside-border: 6px solid $font-secondary
     &:focus
       outline: none
   &__btn
+    margin: 1rem 2rem
+
     width: 180px
     height: 60px
     background: #333945
@@ -51,6 +57,8 @@ $outside-border: 6px solid $font-secondary
       border: 3px solid #ff8484
     &:hover
       border: 3px solid $font-secondary
+.btn__container
+  display: flex
 hr.why
   width: 100%
   border-color: $font-primary

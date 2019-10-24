@@ -27,9 +27,13 @@
   padding: 1rem;
 }
 .register__label {
+  display: flex;
+  align-items: center;
   padding: 0.5rem;
 }
 .register__span {
+  display: block;
+  width: 120px;
   padding: 0 1rem 0 0;
 }
 .register__input {
@@ -44,6 +48,7 @@
   outline: none;
 }
 .register__btn {
+  margin: 1rem 2rem;
   width: 180px;
   height: 60px;
   background: #333945;
@@ -59,6 +64,10 @@
 }
 .register__btn:hover {
   border: 3px solid #d29b62;
+}
+
+.btn__container {
+  display: flex;
 }
 
 hr.why {
