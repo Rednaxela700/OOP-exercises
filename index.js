@@ -3,35 +3,38 @@
 //constructor name should start with capital letter
 class Person {
     constructor(name, address, idNumber, age) {
-    this.name = name;
-    this.address = address;
-    this.idNumber = idNumber;
-    this.age = age;
+        this.name = name;
+        this.address = address;
+        this.idNumber = idNumber;
+        this.age = age;
     }
+
     changeId(num) {
         this.idNumber = num
-}
+    }
 }
 
 //creating student class
 class StudentES6 extends Person {
-    constructor (name, address, idNumber, age) {
+    constructor(name, address, idNumber, age) {
         super(name, address, idNumber, age);
         this.role = 'Student';
     }
+
     displayFullInfo() {
         console.log(`Student ${this.name} id: ${this.idNumber}`);
     }
 }
 class TeacherES6 extends Person {
-    constructor (name, address, idNumber, age){
-    super(name, address, idNumber, age);
-    this.role = 'Teacher';
-}}
+    constructor(name, address, idNumber, age) {
+        super(name, address, idNumber, age);
+        this.role = 'Teacher';
+    }
+}
 
 //creating students
 const newStudentES6 = new StudentES6('Michal ES6', 'JS-owa 11', 777, 22);
-const anotherStudent = new StudentES6 ('Kichal', 'Lipa 1', 666 , 55);
+const anotherStudent = new StudentES6('Kichal', 'Lipa 1', 666, 55);
 
 //creating teachers
 const newTeacherES6 = new TeacherES6('TeacherName', 'Modularna 5', 999, 23);
@@ -60,33 +63,31 @@ teachersList.push(newTeacherES6);
 
 
 render(studentsList); //run render
-console.log(studentsList);
 
-
-
+//later this function should be a class
 function render(array) {
     let outputHtml = '';
-    const htmlAnchor = document.querySelector('.student__container');
+    const htmlAnchor = document.querySelector(`.student__container`); //'.__container'
 //function creating html output
-function studentItemDiv(className, item, arg) {
-    return `<div class="${className}">${item[arg]}</div>`
-}
+    function studentItemDiv(className, item, arg) {
+        return `<div class="${className}">${item[arg]}</div>`
+    }
 
-array.map((element) => {
+    array.map((element) => {
 
-    outputHtml +=
-        '<div class="student__row">' +
-        studentItemDiv('student__item', element, 'name') +
-        studentItemDiv('student__item', element, 'address') +
-        studentItemDiv('student__item', element, 'idNumber') +
-        studentItemDiv('student__item', element, 'age') +
-        studentItemDiv('student__item', element, 'role') +
-        '</div>' ;
-});
+        outputHtml +=
+            '<div class="student__row">' +
+            studentItemDiv('student__item', element, 'name') +
+            studentItemDiv('student__item', element, 'address') +
+            studentItemDiv('student__item', element, 'idNumber') +
+            studentItemDiv('student__item', element, 'age') +
+            studentItemDiv('student__item', element, 'role') +
+            '</div>';
+    });
 
-htmlAnchor.innerHTML = outputHtml;
+    htmlAnchor.innerHTML = outputHtml;
 
 }
 button.addEventListener('click', () => {
-   console.log('btn clicked')
+    console.log('btn clicked')
 });
