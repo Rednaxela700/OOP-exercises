@@ -17,17 +17,34 @@ $outside-border: 6px solid $font-secondary
   color: $font-secondary
   text-align: center
   margin: 1rem auto
+  &__h2
+    align-self: flex-start
+    justify-self: flex-start
 
 .register
   &__container
     display: flex
     flex-direction: column
     align-items: center
-    padding: 1rem
+    position: relative
+    padding: 3rem 1rem
+    width: 500px
+    margin: 2rem auto
+    border: 1px solid $font-secondary
+    &::after
+      content: ''
+      position: absolute
+      top: -.5rem
+      right: -.5rem
+      width: 534px
+      height: 414px
+      outline: 1px solid $font-primary
+      z-index: 1
   &__label
     display: flex
     align-items: center
     padding: .5rem
+    z-index: 2
   &__span
     display: block
     width: 120px
@@ -38,12 +55,12 @@ $outside-border: 6px solid $font-secondary
     border: 3px solid $font-secondary
     border-radius: .75rem
     background: #333945
-    color: $font-primary
+    color: #b9c5d7
     &:focus
       outline: none
   &__btn
     margin: 1rem 2rem
-
+    z-index: 2
     width: 180px
     height: 60px
     background: #333945
@@ -56,13 +73,22 @@ $outside-border: 6px solid $font-secondary
       outline: none
       border: 3px solid #ff8484
     &:hover
-      border: 3px solid $font-secondary
+      outline: 1px solid $font-secondary
+      border: 3px solid #ff8484
 .btn__container
   display: flex
-hr.why
-  width: 100%
-  border-color: $font-primary
-.student__container
+.why
+  display: block
+  width: calc(100vw - 2rem)
+  border-color: $font-secondary
+  position: absolute
+  &__hr-right
+    right: 0
+  &__hr-left
+    left: 0
+
+.student__container, .teacher__container
+  position: relative
   display: flex
   flex-direction: column
   align-items: center
@@ -70,6 +96,20 @@ hr.why
   height: 100%
   min-height: calc(500px - 3rem)
   min-width: 600px
+  &::before
+    content: ''
+    position: absolute
+    width: calc(100vw - 2rem)
+    height: 1px
+    background-color: $font-primary
+.student__container
+  &::before
+    top: 1rem
+    left: 2rem
+.teacher__container
+  &::before
+    top: 1rem
+    right: 4rem
 .student__row
   display: flex
   justify-content: center
