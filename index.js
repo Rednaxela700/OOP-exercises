@@ -2,10 +2,11 @@
 
 //constructor name should start with capital letter
 class Person {
-    constructor(name, address, idNumber) {
+    constructor(name, address, idNumber, age) {
     this.name = name;
     this.address = address;
     this.idNumber = idNumber;
+    this.age = age;
     }
     changeId(num) {
         this.idNumber = num
@@ -50,8 +51,7 @@ newStudentES6.displayFullInfo()
 //
 // const brandNewStudent = new Student('Tomasz', 12323);
 
-
-
+// nr Ic 2336/17 - cywilny mokotow  22 501 97 20 - 22 501 97 21 - 22 501 97 22
 
 //creating student using constructor above
 // const student1 = new Student('Adam', 'Konwaliowa 2', 23232, 'Medical Diagnosis' );
