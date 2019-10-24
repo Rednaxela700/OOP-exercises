@@ -44,7 +44,7 @@ const input_Name = document.querySelectorAll('input')[0];
 const input_Address = document.querySelectorAll('input')[1];
 const input_IdNumber = document.querySelectorAll('input')[2];
 const input_Age = document.querySelectorAll('input')[3];
-
+const button = document.querySelector('.btn');
 
 function createStudent(constructor_or_class) {
     const newObj = new constructor_or_class(input_Name.value, input_Address.value, input_IdNumber.value, input_Age.value);
@@ -82,3 +82,6 @@ studentsList.map((element) => {
 });
 
 htmlAnchor.innerHTML = outputHtml;
+button.addEventListener('click', () => {
+   console.log('btn clicked')
+});
