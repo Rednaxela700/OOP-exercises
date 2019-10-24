@@ -39,6 +39,7 @@ const newTeacherES6 = new TeacherES6('TeacherName', 'Modularna 5', 999, 23);
 
 //list arr
 const studentsList = [];
+const teachersList = [];
 
 const input_Name = document.querySelectorAll('input')[0];
 const input_Address = document.querySelectorAll('input')[1];
@@ -54,22 +55,24 @@ function createStudent(constructor_or_class) {
 
 
 //push students to arr
-studentsList.push(newStudentES6, anotherStudent , newTeacherES6);
+studentsList.push(newStudentES6, anotherStudent);
+teachersList.push(newTeacherES6);
 
+
+render(studentsList); //run render
 console.log(studentsList);
 
 
-let outputHtml = '';
 
-const htmlAnchor = document.querySelector('.student__container');
-
-
+function render(array) {
+    let outputHtml = '';
+    const htmlAnchor = document.querySelector('.student__container');
 //function creating html output
 function studentItemDiv(className, item, arg) {
     return `<div class="${className}">${item[arg]}</div>`
 }
 
-studentsList.map((element) => {
+array.map((element) => {
 
     outputHtml +=
         '<div class="student__row">' +
@@ -82,6 +85,8 @@ studentsList.map((element) => {
 });
 
 htmlAnchor.innerHTML = outputHtml;
+
+}
 button.addEventListener('click', () => {
    console.log('btn clicked')
 });
