@@ -17,7 +17,7 @@ class Person {
 class StudentES6 extends Person {
     constructor (name, address, idNumber, age) {
         super(name, address, idNumber, age);
-        this.role = 'student';
+        this.role = 'Student';
     }
     displayFullInfo() {
         console.log(`Student ${this.name} id: ${this.idNumber}`);
@@ -42,12 +42,14 @@ const anotherTeacher =  new TeacherES6('Abra', 'kadabra 5', 222, 71);
 //list arr
 const studentsList = [];
 
-let outputHtml = '';
-
+//push students to arr
 studentsList.push(newStudentES6, anotherStudent , newTeacherES6, anotherTeacher);
 
-
 console.log(studentsList);
+
+
+let outputHtml = '';
+
 const htmlAnchor = document.querySelector('.student__container');
 
 
