@@ -35,7 +35,6 @@ class TeacherES6 extends Person {
 //creating students
 const newStudentES6 = new StudentES6('Michal ES6', 'JS-owa 11', 777, 22);
 const anotherStudent = new StudentES6('Kichal', 'Lipa 1', 666, 55);
-
 //creating teachers
 const newTeacherES6 = new TeacherES6('TeacherName', 'Modularna 5', 999, 23);
 
@@ -48,7 +47,8 @@ const input_Name = document.querySelectorAll('input')[0];
 const input_Address = document.querySelectorAll('input')[1];
 const input_IdNumber = document.querySelectorAll('input')[2];
 const input_Age = document.querySelectorAll('input')[3];
-const button = document.querySelector('.btn');
+const buttonStudent = document.querySelectorAll('.btn')[0];
+const buttonTeacher = document.querySelectorAll('.btn')[1];
 
 function createStudent(constructor_or_class) {
     const newObj = new constructor_or_class(input_Name.value, input_Address.value, input_IdNumber.value, input_Age.value);
@@ -57,16 +57,11 @@ function createStudent(constructor_or_class) {
 }
 
 
-//push students to arr
-studentsList.push(newStudentES6, anotherStudent);
-teachersList.push(newTeacherES6);
-
-
 render(studentsList); //run render
 
 //later this function should be a class
 function render(array) {
-    let outputHtml = '';
+    let outputHtml = '<h2 class="heading heading__h2">Students List</h2>';
     const htmlAnchor = document.querySelector(`.student__container`); //'.__container'
 //function creating html output
     function studentItemDiv(className, item, arg) {
@@ -88,6 +83,18 @@ function render(array) {
     htmlAnchor.innerHTML = outputHtml;
 
 }
-button.addEventListener('click', () => {
-    console.log('btn clicked')
+buttonStudent.addEventListener('click', () => {
+    console.log('btn student clicked');
+    studentsList.push(new StudentES6(input_Name.value, input_Address.value, input_IdNumber.value, input_Age.value));
+    console.log(`\nstudents arr log:\n`);
+    console.log(studentsList)
 });
+
+buttonTeacher.addEventListener('click', () => {
+    console.log('btn teacher clicked');
+    teachersList.push(new TeacherES6(input_Name.value, input_Address.value, input_IdNumber.value, input_Age.value));
+    console.log(`\nteacher arr log: \n`);
+    console.log(teachersList);
+});
+
+render(teachersList);
