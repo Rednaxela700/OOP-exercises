@@ -35,15 +35,26 @@ const anotherStudent = new StudentES6 ('Kichal', 'Lipa 1', 666 , 55);
 
 //creating teachers
 const newTeacherES6 = new TeacherES6('TeacherName', 'Modularna 5', 999, 23);
-console.log('\n');
 
-const anotherTeacher =  new TeacherES6('Abra', 'kadabra 5', 222, 71);
 
 //list arr
 const studentsList = [];
 
+const input_Name = document.querySelectorAll('input')[0];
+const input_Address = document.querySelectorAll('input')[1];
+const input_IdNumber = document.querySelectorAll('input')[2];
+const input_Age = document.querySelectorAll('input')[3];
+
+
+function createStudent(constructor_or_class) {
+    const newObj = new constructor_or_class(input_Name.value, input_Address.value, input_IdNumber.value, input_Age.value);
+
+    studentsList.push(newObj);
+}
+
+
 //push students to arr
-studentsList.push(newStudentES6, anotherStudent , newTeacherES6, anotherTeacher);
+studentsList.push(newStudentES6, anotherStudent , newTeacherES6);
 
 console.log(studentsList);
 
