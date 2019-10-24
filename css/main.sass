@@ -17,6 +17,43 @@ $outside-border: 6px solid $font-secondary
   color: $font-secondary
   text-align: center
   margin: 1rem auto
+
+.register
+  &__container
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 1rem
+  &__label
+    padding: .5rem
+  &__span
+    padding: 0 1rem 0 0
+  &__input
+    font-size: 1rem
+    padding: .5rem 1rem
+    border: 3px solid $font-secondary
+    border-radius: .75rem
+    background: #333945
+    color: $font-primary
+    &:focus
+      outline: none
+  &__btn
+    width: 180px
+    height: 60px
+    background: #333945
+    border: 3px solid #f67670
+    color: #fff
+    text-align: center
+    font-size: 1.2rem
+    text-transform: uppercase
+    &:focus
+      outline: none
+      border: 3px solid #ff8484
+    &:hover
+      border: 3px solid $font-secondary
+hr.why
+  width: 100%
+  border-color: $font-primary
 .student__container
   display: flex
   flex-direction: column
@@ -24,6 +61,7 @@ $outside-border: 6px solid $font-secondary
   justify-content: center
   height: 100%
   min-height: calc(500px - 3rem)
+  min-width: 600px
 .student__row
   display: flex
   justify-content: center
@@ -37,8 +75,8 @@ $outside-border: 6px solid $font-secondary
   justify-content: center
   align-items: center
   padding: 1rem
-  width: 200px
-  height: 80px
+  width: 120px
+  height: 60px
   border: 3px solid $font-secondary
   &:first-child
     border-left: $outside-border
