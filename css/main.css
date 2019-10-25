@@ -24,71 +24,39 @@
   justify-self: flex-start;
 }
 
-.register__container {
+.game__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding: 3rem 1rem;
-  width: 500px;
+  width: 700px;
+  height: 700px;
   margin: 2rem auto;
   border: 1px solid #d29b62;
 }
-.register__container::after {
+.game__container::after {
   content: "";
   position: absolute;
   top: -0.5rem;
   right: -0.5rem;
-  width: 534px;
-  height: 414px;
+  width: 700px;
+  height: 700px;
   outline: 1px solid #70beca;
   z-index: 1;
 }
-.register__label {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
-  z-index: 2;
+.game__container--inner {
+  position: relative;
+  width: calc(700px - .5rem);
+  margin: 0 0 0.5rem 0.5rem;
+  height: 716px;
 }
-.register__span {
-  display: block;
-  width: 120px;
-  padding: 0 1rem 0 0;
-}
-.register__input {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border: 3px solid #d29b62;
-  border-radius: 0.75rem;
-  background: #333945;
-  color: #b9c5d7;
-}
-.register__input:focus {
-  outline: none;
-}
-.register__btn {
-  margin: 1rem 2rem;
-  z-index: 2;
-  width: 180px;
-  height: 60px;
-  background: #333945;
-  border: 3px solid #f67670;
-  color: #fff;
-  text-align: center;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-}
-.register__btn:focus {
-  outline: none;
-  border: 3px solid #ff8484;
-}
-.register__btn:hover {
-  outline: 1px solid #d29b62;
-  border: 3px solid #ff8484;
-}
-
-.btn__container {
-  display: flex;
+.game__player {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ea7c82;
+  top: 0;
+  left: 0;
 }
 
 .why {

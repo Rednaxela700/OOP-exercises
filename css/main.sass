@@ -21,14 +21,14 @@ $outside-border: 6px solid $font-secondary
     align-self: flex-start
     justify-self: flex-start
 
-.register
+.game
   &__container
     display: flex
     flex-direction: column
     align-items: center
     position: relative
-    padding: 3rem 1rem
-    width: 500px
+    width: 700px
+    height: 700px
     margin: 2rem auto
     border: 1px solid $font-secondary
     &::after
@@ -36,47 +36,22 @@ $outside-border: 6px solid $font-secondary
       position: absolute
       top: -.5rem
       right: -.5rem
-      width: 534px
-      height: 414px
+      width: 700px
+      height: 700px
       outline: 1px solid $font-primary
       z-index: 1
-  &__label
-    display: flex
-    align-items: center
-    padding: .5rem
-    z-index: 2
-  &__span
-    display: block
-    width: 120px
-    padding: 0 1rem 0 0
-  &__input
-    font-size: 1rem
-    padding: .5rem 1rem
-    border: 3px solid $font-secondary
-    border-radius: .75rem
-    background: #333945
-    color: #b9c5d7
-    &:focus
-      outline: none
-  &__btn
-    margin: 1rem 2rem
-    z-index: 2
-    width: 180px
-    height: 60px
-    background: #333945
-    border: 3px solid #f67670
-    color: #fff
-    text-align: center
-    font-size: 1.2rem
-    text-transform: uppercase
-    &:focus
-      outline: none
-      border: 3px solid #ff8484
-    &:hover
-      outline: 1px solid $font-secondary
-      border: 3px solid #ff8484
-.btn__container
-  display: flex
+    &--inner
+      position: relative
+      width: calc(700px - .5rem)
+      margin: 0 0 0.5rem .5rem
+      height: 716px
+  &__player
+    position: absolute
+    width: 10px
+    height: 10px
+    background: #ea7c82
+    top: 0
+    left: 0
 .why
   display: block
   width: calc(100vw - 2rem)
