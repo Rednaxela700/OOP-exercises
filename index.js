@@ -1,6 +1,10 @@
 const board = {
     id: document.getElementById('board'),
+    width: document.getElementById('board').offsetWidth
+    height: document.getElementById('board').offsetHeight
+    // height: this.id.offsetHeight
 };
+console.log(board.id.offsetWidth)
 const player = {
     id: document.getElementById('player'),
     move(direction) {
