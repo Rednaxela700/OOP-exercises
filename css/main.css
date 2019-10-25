@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+body {
+  overflow: hidden;
+}
+
 .wrapper {
   font-family: Roboto, sans-serif;
   width: 100vw;
