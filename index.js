@@ -10,20 +10,46 @@ const player = {
     move(direction) {
         const positionX = this.id.offsetLeft;
         const positionY = this.id.offsetTop;
+        const {height, width} = board;
+        const maxPositionX = width - 16;
+        const maxPositionY = height - 16;
+
+        const {id} = player;
         switch (direction) {
             case 'ArrowLeft':
                 // this.id.style.left = `${(positionX - 10).toString()}px`;
-                collision()
+
+                if (positionX > 0 ) {
+                    id.style.left = `${(positionX - 10).toString()}px`;
+                } else {
+                    console.log(`first collision else log`);
+                }
                 break;
             case 'ArrowRight':
-                this.id.style.left = `${(positionX + 10).toString()}px`;
+
+
+                if (positionX < maxPositionX ) {
+                    id.style.left = `${(positionX + 10).toString()}px`;
+                } else {
+                    console.log(`second collision else log`);
+                }
+
                 break;
             case 'ArrowUp':
-                this.id.style.top = `${(positionY - 10).toString()}px`;
-                // collision()
+
+                if (positionY > 0 ) {
+                    id.style.top = `${(positionY - 10).toString()}px`;
+                } else {
+                    console.log(`third collision else log`);
+                }
                 break;
             case 'ArrowDown':
-                this.id.style.top = `${(positionY + 10).toString()}px`;
+
+                if (positionY < maxPositionY ) {
+                    id.style.top = `${(positionY + 10).toString()}px`;
+                } else {
+                    console.log(`fourth collision else log`);
+                }
                 break;
             default:
                 console.log('try with arrows, dumbooooo');
@@ -34,22 +60,3 @@ document.body.addEventListener('keydown', function (event) {
     player.move(event.key)
 });
 
-function collision() {
-
-
-    const {id} = player;
-    const {height, width} = board;
-    const positionX = id.offsetLeft;
-    const positionY = id.offsetTop;
-    const maxPositionY = height;
-
-// && positionY < maxPositionY
-    if (positionX > 0 ) {
-        id.style.left = `${(positionX - 10).toString()}px`;
-    } else {
-        console.log(`first collision else log`);
-    }
-
-    console.log(height);
-    console.log(`offsetTop: ${id.offsetTop}`)
-}
