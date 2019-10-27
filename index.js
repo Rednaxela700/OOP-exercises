@@ -11,7 +11,7 @@ const player = {
         const positionX = this.id.offsetLeft;
         const positionY = this.id.offsetTop;
         const {height, width} = board;
-        const maxPositionX = width - 16;
+        const maxPositionX = width - 12;
         const maxPositionY = height - 16;
 
         const {id} = player;
@@ -22,7 +22,7 @@ const player = {
                 if (positionX > 0 ) {
                     id.style.left = `${(positionX - 10).toString()}px`;
                 } else {
-                    console.log(`first collision else log`);
+                    console.log(`east wall collision else log`);
                 }
                 break;
             case 'ArrowRight':
@@ -31,7 +31,7 @@ const player = {
                 if (positionX < maxPositionX ) {
                     id.style.left = `${(positionX + 10).toString()}px`;
                 } else {
-                    console.log(`second collision else log`);
+                    console.log(`west wall collision else log`);
                 }
 
                 break;
@@ -40,7 +40,7 @@ const player = {
                 if (positionY > 0 ) {
                     id.style.top = `${(positionY - 10).toString()}px`;
                 } else {
-                    console.log(`third collision else log`);
+                    console.log(`north wall collision else log`);
                 }
                 break;
             case 'ArrowDown':
@@ -48,7 +48,7 @@ const player = {
                 if (positionY < maxPositionY ) {
                     id.style.top = `${(positionY + 10).toString()}px`;
                 } else {
-                    console.log(`fourth collision else log`);
+                    console.log(`south wall collision else log`);
                 }
                 break;
             default:
