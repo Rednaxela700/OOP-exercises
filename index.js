@@ -18,7 +18,7 @@ const food = {
     changePosition(min,max) {
         const roundedMax = Math.round(max / 10) * 10; //rounding to tenth
         const randomPosition = Math.floor(Math.random() * (roundedMax - min + 1) + min); //generating random position (max = board width)
-        const roundedRandomPos = Math.round(randomPosition / 10) * 10;
+        const roundedRandomPos = Math.round(randomPosition / 10) * 10; //rounding position to tenth ex. 492 to 490
         return `${roundedRandomPos}px`
     }
 };
