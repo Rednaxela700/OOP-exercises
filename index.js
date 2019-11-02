@@ -8,10 +8,17 @@ const food = {
     createEl() {
         const el = document.createElement('div');
         el.classList.add('game__food');
-        el.style.top = '100px';
-        el.style.left = '400px';
+        el.style.top = this.changePosition(0, board.height);
+        el.style.left = this.changePosition(0, board.width);
         board.id.appendChild(el)
-}
+    },
+    changePosition(min,max) {
+        const roundedMax = Math.round(max / 10) * 10;
+        const randomPosition = Math.floor(Math.random() * (roundedMax - min + 1) + min);
+        const roundedRandomPos = Math.round(randomPosition / 10) * 10;
+        console.log(roundedRandomPos);
+        return `${roundedRandomPos}px`
+    }
 };
 console.log(board.id.offsetWidth);
 const player = {
@@ -28,7 +35,7 @@ const player = {
             case 'ArrowLeft':
                 // this.id.style.left = `${(positionX - 10).toString()}px`;
 
-                if (positionX > 0 ) {
+                if (positionX > 0) {
                     id.style.left = `${(positionX - 10).toString()}px`;
                 } else {
                     console.log(`east wall collision else log`);
@@ -37,7 +44,7 @@ const player = {
             case 'ArrowRight':
 
 
-                if (positionX < maxPositionX ) {
+                if (positionX < maxPositionX) {
                     id.style.left = `${(positionX + 10).toString()}px`;
                 } else {
                     console.log(`west wall collision else log`);
@@ -46,7 +53,7 @@ const player = {
                 break;
             case 'ArrowUp':
 
-                if (positionY > 0 ) {
+                if (positionY > 0) {
                     id.style.top = `${(positionY - 10).toString()}px`;
                 } else {
                     console.log(`north wall collision else log`);
@@ -54,7 +61,7 @@ const player = {
                 break;
             case 'ArrowDown':
 
-                if (positionY < maxPositionY ) {
+                if (positionY < maxPositionY) {
                     id.style.top = `${(positionY + 10).toString()}px`;
                 } else {
                     console.log(`south wall collision else log`);
