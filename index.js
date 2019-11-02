@@ -13,14 +13,12 @@ const food = {
         board.id.appendChild(el)
     },
     changePosition(min,max) {
-        const roundedMax = Math.round(max / 10) * 10;
-        const randomPosition = Math.floor(Math.random() * (roundedMax - min + 1) + min);
+        const roundedMax = Math.round(max / 10) * 10; //rounding to tenth
+        const randomPosition = Math.floor(Math.random() * (roundedMax - min + 1) + min); //generating random position (max = board width)
         const roundedRandomPos = Math.round(randomPosition / 10) * 10;
-        console.log(roundedRandomPos);
         return `${roundedRandomPos}px`
     }
 };
-console.log(board.id.offsetWidth);
 const player = {
     id: document.getElementById('player'),
     move(direction) {
