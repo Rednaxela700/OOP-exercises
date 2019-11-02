@@ -4,6 +4,15 @@ const board = {
     height: document.getElementById('board').offsetHeight
     // height: this.id.offsetHeight
 };
+const food = {
+    createEl() {
+        const el = document.createElement('div');
+        el.classList.add('game__food');
+        el.style.top = '100px';
+        el.style.left = '400px';
+        board.id.appendChild(el)
+}
+};
 console.log(board.id.offsetWidth);
 const player = {
     id: document.getElementById('player'),
@@ -59,4 +68,5 @@ const player = {
 document.body.addEventListener('keydown', function (event) {
     player.move(event.key)
 });
+food.createEl();
 
