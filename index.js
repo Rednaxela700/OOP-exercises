@@ -5,12 +5,15 @@ const board = {
     // height: this.id.offsetHeight
 };
 const food = {
+    id: '',
     createEl() {
         const el = document.createElement('div');
-        el.classList.add('game__food');
-        el.style.top = this.changePosition(0, board.height);
+        el.setAttribute('id','food'); //add id=food attribute
+        el.classList.add('game__food'); //add css class
+        el.style.top = this.changePosition(0, board.height);    //randomize position on board
         el.style.left = this.changePosition(0, board.width);
         board.id.appendChild(el)
+        return this.id = document.getElementById('food') // return elements id set to food
     },
     changePosition(min,max) {
         const roundedMax = Math.round(max / 10) * 10; //rounding to tenth
@@ -61,6 +64,7 @@ const player = {
 
                 if (positionY < maxPositionY) {
                     id.style.top = `${(positionY + 10).toString()}px`;
+                    // if (player.id.offsetTop === food.)
                 } else {
                     console.log(`south wall collision else log`);
                 }
