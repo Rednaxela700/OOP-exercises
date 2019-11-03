@@ -78,7 +78,7 @@ const player = {
                     }//check if food is being eaten
                 } else {
                     console.log(`east wall collision else log`);
-                    player.destroy()
+                    player.destroy();
                 }
                 break;
             case 'ArrowRight':
@@ -92,7 +92,7 @@ const player = {
                     }
                 } else {
                     console.log(`west wall collision else log`);
-                    player.destroy()
+                    player.destroy();
                 }
                 break;
             case 'ArrowUp':
@@ -109,7 +109,6 @@ const player = {
                 } else {
                     console.log(`north wall collision else log`);
                     player.destroy()
-
                 }
                 break;
             case 'ArrowDown':
@@ -145,7 +144,8 @@ const player = {
         this.playerLength = 10;
         this.id.style.width = `${10}px`;
         this.score = 0;
-        board.displayScore()
+        board.displayScore();
+        food.changePosition();
     }
 };
 document.body.addEventListener('keydown', function (event) {
