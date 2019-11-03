@@ -14,42 +14,29 @@ const food = {
         const el = document.createElement('div');
         el.setAttribute('id', 'food'); //add id=food attribute
         el.classList.add('game__food'); //add css class
-        el.style.top = this.setPosition(0, board.height, 'y');    //randomize position on board
-        el.style.left = this.setPosition(0, board.width, 'x');
+        el.style.top = this.setPosition(board.height);    //randomize position on board
+        el.style.left = this.setPosition(board.width);
         board.id.appendChild(el);
         return this.id = document.getElementById('food') // return elements id set to food
     },
     updatePosition(axis) {
         if (axis === 'x') {
             return this.position.x = this.id.offsetLeft;
-        } else {
+        } else if (axis === 'y') {
             return this.position.y = this.id.offsetTop;
+        } else {
+             console.log('update position fail')
         }
     },
-    setPosition(min, max, axis) {
-        const roundedMax = Math.round(max / 10) * 10; //rounding to tenth
-        const randomPosition = Math.floor(Math.random() * (roundedMax - min + 1) + min); //generating random position (max = board width)
+    setPosition(axis) {
+        const roundedMax = Math.round((axis - 10) / 10) * 10; //rounding to tenth
+        const randomPosition = Math.floor(Math.random() * (roundedMax + 1)); //generating random position (max = board width)
         const roundedRandomPos = Math.round(randomPosition / 10) * 10; //rounding position to tenth ex. 492 to 490
         return `${roundedRandomPos}px`
     },
     changePosition() {
-        console.log('changePos initialized');
-        const x = () => {
-            console.log('const x init');
-            const roundedMax = Math.round(board.width / 10) * 10; //rounding to tenth
-            const randomPosition = Math.floor(Math.random() * (roundedMax - 0 + 1) + 0); //generating random position (max = board width)
-            const roundedRandomPos = Math.round(randomPosition / 10) * 10; //rounding position to tenth ex. 492 to 490
-            return `${roundedRandomPos}px`
-        };
-        const y = () => {
-            console.log('const y init');
-            const roundedMax = Math.round(board.height / 10) * 10; //rounding to tenth
-            const randomPosition = Math.floor(Math.random() * (roundedMax - 0 + 1) + 0); //generating random position (max = board width)
-            const roundedRandomPos = Math.round(randomPosition / 10) * 10; //rounding position to tenth ex. 492 to 490
-            return `${roundedRandomPos}px`
-        };
-        this.id.style.top = y();
-        this.id.style.left = x();
+        this.id.style.top = this.setPosition(board.height);
+        this.id.style.left = this.setPosition(board.width);
         this.updatePosition('y');
         this.updatePosition('x');
     }
@@ -70,7 +57,7 @@ const player = {
                 // this.id.style.left = `${(positionX - 10).toString()}px`;
                 food.updatePosition('x');
                 if (positionX > 0) {
-                    if (positionX === food.position.x + 10 && positionY === food.position.y) {
+                    if (positionX === food.position.x + 10 && positionY === food.position.y) { //check if food is being eaten
                         console.log('EATEN!');
                         player.grow();
                         id.style.left = `${(positionX - 10).toString()}px`;
@@ -84,7 +71,13 @@ const player = {
                 break;
             case 'ArrowRight':
                 if (positionX < maxPositionX) {
-                    id.style.left = `${(positionX + 10).toString()}px`;
+                    if (positionX === food.position.x - 10 && positionY === food.position.y) {
+                        console.log('EATEN!');
+                        player.grow();
+                        id.style.left = `${(positionX + 10).toString()}px`;
+                    } else  {
+                        id.style.left = `${(positionX + 10).toString()}px`;
+                    }
                 } else {
                     console.log(`west wall collision else log`);
                     player.destroy()
@@ -93,7 +86,14 @@ const player = {
             case 'ArrowUp':
 
                 if (positionY > 0) {
-                    id.style.top = `${(positionY - 10).toString()}px`;
+                    if (positionY === food.position.y + 10 && positionX === food.position.x) {
+                        console.log('EATEN!');
+                        player.grow();
+                        id.style.top = `${(positionY - 10).toString()}px`;
+                    } else {
+                        id.style.top = `${(positionY - 10).toString()}px`;
+                    }
+
                 } else {
                     console.log(`north wall collision else log`);
                     player.destroy()
@@ -103,6 +103,10 @@ const player = {
             case 'ArrowDown':
 
                 if (positionY < maxPositionY) {
+                    if (positionY === food.position.y - 10 && positionX === food.position.x) {
+                        player.grow();
+                        id.style.top = `${(positionY + 10).toString()}px`;
+                    }
                     id.style.top = `${(positionY + 10).toString()}px`;
                     // if (player.id.offsetTop === food.)
                 } else {
@@ -119,8 +123,9 @@ const player = {
         let width = this.playerLength;
         (width === 0) ? width = initWidth : width += 10;
         this.playerLength = width;
-        player.id.style.width = `${width}px`;
-        this.score += 10;
+        player.id.style.width = `${width}px`;   //increase snake size
+        this.score += 10;   //add score
+        food.changePosition() //change food position
 
     },
     destroy() {
