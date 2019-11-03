@@ -31,6 +31,27 @@ const food = {
         const randomPosition = Math.floor(Math.random() * (roundedMax - min + 1) + min); //generating random position (max = board width)
         const roundedRandomPos = Math.round(randomPosition / 10) * 10; //rounding position to tenth ex. 492 to 490
         return `${roundedRandomPos}px`
+    },
+    changePosition() {
+        console.log('changePos initialized');
+        const x = () => {
+            console.log('const x init');
+            const roundedMax = Math.round(board.width / 10) * 10; //rounding to tenth
+            const randomPosition = Math.floor(Math.random() * (roundedMax - 0 + 1) + 0); //generating random position (max = board width)
+            const roundedRandomPos = Math.round(randomPosition / 10) * 10; //rounding position to tenth ex. 492 to 490
+            return `${roundedRandomPos}px`
+        };
+        const y = () => {
+            console.log('const y init');
+            const roundedMax = Math.round(board.height / 10) * 10; //rounding to tenth
+            const randomPosition = Math.floor(Math.random() * (roundedMax - 0 + 1) + 0); //generating random position (max = board width)
+            const roundedRandomPos = Math.round(randomPosition / 10) * 10; //rounding position to tenth ex. 492 to 490
+            return `${roundedRandomPos}px`
+        };
+        this.id.style.top = y();
+        this.id.style.left = x();
+        this.updatePosition('y');
+        this.updatePosition('x');
     }
 };
 const player = {
