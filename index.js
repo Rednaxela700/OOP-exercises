@@ -1,7 +1,19 @@
 const board = {
     id: document.getElementById('board'),
     width: document.getElementById('board').offsetWidth,
-    height: document.getElementById('board').offsetHeight
+    height: document.getElementById('board').offsetHeight,
+    scoreboard: '',
+    createScoreboard () {
+        const scoreBoard = document.createElement('span');
+        scoreBoard.classList.add('.scoreboard');
+        this.scoreboard = scoreBoard;
+        this.id.appendChild(scoreBoard);
+        this.displayScore();
+
+    },
+    displayScore () {
+        this.scoreboard.innerText = player.score;
+    }
     // height: this.id.offsetHeight
 };
 const food = {
@@ -140,4 +152,5 @@ document.body.addEventListener('keydown', function (event) {
 food.createEl();
 food.updatePosition('x');
 food.updatePosition('y');
+board.createScoreboard();
 
