@@ -37,6 +37,8 @@ const food = {
 };
 const player = {
     id: document.getElementById('player'),
+    playerLength: 10,
+    score : 0,
     move(direction) {
         const positionX = this.id.offsetLeft;
         const positionY = this.id.offsetTop;
@@ -48,14 +50,21 @@ const player = {
         switch (direction) {
             case 'ArrowLeft':
                 // this.id.style.left = `${(positionX - 10).toString()}px`;
-
+                food.updatePosition('x');
                 if (positionX > 0) {
-                    if(positionX === food.position.x && positionY === food.position.y) {
+                    if(positionX === food.position.x + 10 && positionY === food.position.y) {
                         console.log('EATEN!');
+                        player.grow();
+                        id.style.left = `${(positionX - 10).toString()}px`;
+
+                    } else {
+                        id.style.left = `${(positionX - 10).toString()}px`;
                     }//check if food is being eaten
-                    id.style.left = `${(positionX - 10).toString()}px`;
+
                 } else {
                     console.log(`east wall collision else log`);
+                    player.destroy()
+
                 }
                 break;
             case 'ArrowRight':
@@ -65,6 +74,8 @@ const player = {
                     id.style.left = `${(positionX + 10).toString()}px`;
                 } else {
                     console.log(`west wall collision else log`);
+                    player.destroy()
+
                 }
 
                 break;
@@ -74,6 +85,8 @@ const player = {
                     id.style.top = `${(positionY - 10).toString()}px`;
                 } else {
                     console.log(`north wall collision else log`);
+                    player.destroy()
+
                 }
                 break;
             case 'ArrowDown':
@@ -83,15 +96,26 @@ const player = {
                     // if (player.id.offsetTop === food.)
                 } else {
                     console.log(`south wall collision else log`);
+                    player.destroy()
                 }
                 break;
             default:
                 console.log('try with arrows, dumbooooo');
         }
+    }, grow() {
+        const initWidth = 10;
+        let width = this.playerLength;
+        (width === 0)? width = initWidth : width += 10;
+        this.playerLength = width;
+        player.id.style.width = `${width}px`;
+        this.score += 10;
+
     }
 };
 document.body.addEventListener('keydown', function (event) {
     player.move(event.key)
 });
 food.createEl();
+food.updatePosition('x');
+food.updatePosition('y');
 
