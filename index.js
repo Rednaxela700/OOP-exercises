@@ -92,7 +92,8 @@ const player = {
             default:
                 console.log('try with arrows, dumbooooo');
         }
-    }, grow() {
+    },
+    grow() {
         const initWidth = 10;
         let width = this.playerLength;
         (width === 0) ? width = initWidth : width += 10;
@@ -100,7 +101,8 @@ const player = {
         player.id.style.width = `${width}px`;
         this.score += 10;
 
-    }, destroy() {
+    },
+    destroy() {
         this.playerLength = 10;
         this.id.style.width = `${10}px`;
         this.score = 0;
