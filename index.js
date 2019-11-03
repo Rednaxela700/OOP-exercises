@@ -5,14 +5,14 @@ const board = {
     scoreboard: '',
     createScoreboard () {
         const scoreBoard = document.createElement('span');
-        scoreBoard.classList.add('.scoreboard');
+        scoreBoard.classList.add('scoreboard');
         this.scoreboard = scoreBoard;
         this.id.appendChild(scoreBoard);
         this.displayScore();
 
     },
     displayScore () {
-        this.scoreboard.innerText = player.score;
+        this.scoreboard.innerText = `Score: ${player.score}`;
     }
     // height: this.id.offsetHeight
 };
@@ -137,6 +137,7 @@ const player = {
         this.playerLength = width;
         player.id.style.width = `${width}px`;   //increase snake size
         this.score += 10;   //add score
+        board.displayScore();
         food.changePosition() //change food position
 
     },
@@ -144,6 +145,7 @@ const player = {
         this.playerLength = 10;
         this.id.style.width = `${10}px`;
         this.score = 0;
+        board.displayScore()
     }
 };
 document.body.addEventListener('keydown', function (event) {
